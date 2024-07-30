@@ -8,6 +8,8 @@ import 'package:flutter_geofire/flutter_geofire.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kumari_drivers/AuthanticationPages/login.dart';
+import 'package:kumari_drivers/BottamNavigation/subscriptionbutton.dart';
+import 'package:kumari_drivers/BottamNavigation/trips_page.dart';
 import 'package:kumari_drivers/Const/geokey.dart';
 import 'package:kumari_drivers/Subscription/driver_avl.dart';
 import 'package:kumari_drivers/Subscription/subscription.dart';
@@ -35,22 +37,17 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   bool isDriverAvailable = false;
   DatabaseReference? newTripRequestReference;
 
-
-
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-     retrieveCurrentDriverInfo();
+    retrieveCurrentDriverInfo();
     initializePushNotificationSystem();
-    
-   
-     getUserCurrentLocation();
-      getUserInfoAndCheckBlockStatus();
-     checkSubscriptionTimer();
+
+    getUserCurrentLocation();
+    getUserInfoAndCheckBlockStatus();
+    checkSubscriptionTimer();
   }
-
-
 
   Future<Position> getUserCurrentLocation() async {
     await Geolocator.requestPermission()
@@ -64,14 +61,17 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
   // Method to get current live location of driver
   void getCurrentLiveLocationOfDriver() async {
-    Position positionOfUser = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
-    currentPositionOfDriver = positionOfUser;driverCurrentPosition = currentPositionOfDriver;
-    LatLng positionOfUserInLatLng = LatLng(currentPositionOfDriver!.latitude, currentPositionOfDriver!.longitude);
-    CameraPosition cameraPosition = CameraPosition(target: positionOfUserInLatLng, zoom: 15);
-    controllerGoogleMap!.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+    Position positionOfUser = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.bestForNavigation);
+    currentPositionOfDriver = positionOfUser;
+    driverCurrentPosition = currentPositionOfDriver;
+    LatLng positionOfUserInLatLng = LatLng(
+        currentPositionOfDriver!.latitude, currentPositionOfDriver!.longitude);
+    CameraPosition cameraPosition =
+        CameraPosition(target: positionOfUserInLatLng, zoom: 15);
+    controllerGoogleMap!
+        .animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
   }
-
- 
 
   Future<void> getUserInfoAndCheckBlockStatus() async {
     DatabaseReference usersRef = FirebaseDatabase.instance
@@ -102,8 +102,6 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     }
   }
 
-
-
   void checkSubscriptionTimer() {
     final subscriptionProvider =
         Provider.of<SubscriptionProvider>(context, listen: false);
@@ -124,7 +122,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   }
 
   // Method to go online
- goOnlineNow() {
+  goOnlineNow() {
     Geofire.initialize("onlineDrivers");
     Geofire.setLocation(
       FirebaseAuth.instance.currentUser!.uid,
@@ -141,8 +139,6 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
     newTripRequestReference!.onValue.listen((event) {});
   }
-
- 
 
   // Method to get user current location
 
@@ -163,8 +159,8 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     });
   }
 
-   // Method to go offline
- goOfflineNow() {
+  // Method to go offline
+  goOfflineNow() {
     Geofire.removeLocation(FirebaseAuth.instance.currentUser!.uid);
     newTripRequestReference!.onDisconnect();
     newTripRequestReference!.remove();
@@ -178,28 +174,28 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   }
 
   retrieveCurrentDriverInfo() async {
-    await FirebaseDatabase.instance.ref()
+    await FirebaseDatabase.instance
+        .ref()
         .child("drivers")
         .child(FirebaseAuth.instance.currentUser!.uid)
         .once()
         .then((snap) {
-      driverName  = (snap.snapshot.value as Map)["name"];
+      driverName = (snap.snapshot.value as Map)["name"];
       driverPhone = (snap.snapshot.value as Map)["phone"];
       driverPhoto = (snap.snapshot.value as Map)["photo"];
-      carModel    = (snap.snapshot.value as Map)["car_details"]["carModel"];
-      carNumber   = (snap.snapshot.value as Map)["car_details"]["carNumber"];
-      carSeats    = (snap.snapshot.value as Map)["car_details"]["carSeats"].toString();
+      carModel = (snap.snapshot.value as Map)["car_details"]["carModel"];
+      carNumber = (snap.snapshot.value as Map)["car_details"]["carNumber"];
+      carSeats =
+          (snap.snapshot.value as Map)["car_details"]["carSeats"].toString();
     });
-   
+
     initializePushNotificationSystem();
-    
   }
 
   @override
   void setState(VoidCallback fn) {
-    // TODO: implement setState
     super.setState(fn);
-     retrieveCurrentDriverInfo();
+    retrieveCurrentDriverInfo();
   }
 
   @override
@@ -265,11 +261,11 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                                 const SizedBox(height: 11),
                                 Text(
                                   (!driverAvailability.isDriverAvailable)
-                                      ? "GO ONLINE NOW"
-                                      : "GO OFFLINE NOW",
+                                      ? "GO ONLINE NOW".tr()
+                                      : "GO OFFLINE NOW".tr(),
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
-                                    fontSize: 22,
+                                    fontSize: 18,
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -278,9 +274,12 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                                 Text(
                                   (!driverAvailability.isDriverAvailable)
                                       ? "You are about to go online, you will become available to receive trip requests from users."
-                                      : "You are about to go offline, you will stop receiving new trip requests from users.",
+                                          .tr()
+                                      : "You are about to go offline, you will stop receiving new trip requests from users."
+                                          .tr(),
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
+                                    fontSize: 12,
                                     color: Colors.white30,
                                   ),
                                 ),
@@ -292,7 +291,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                                         onPressed: () {
                                           Navigator.pop(context);
                                         },
-                                        child: const Text("BACK"),
+                                        child: Text("BACK".tr()),
                                       ),
                                     ),
                                     const SizedBox(width: 16),
@@ -323,7 +322,14 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                                               ? Colors.pink
                                               : Colors.green,
                                         ),
-                                        child: const Text("CONFIRM"),
+                                        child: Text(
+                                          "CONFIRM".tr(),
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize:
+                                                12.0, // Adjust the font size as needed
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -377,12 +383,12 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
               meterialColor: Colors.amber,
               borderRadius: BorderRadius.circular(5),
               containerheight: 30,
-              containerwidth: 110,
+              containerwidth: 130,
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => const Subscription(),
+                    builder: (_) => const SubscriptionButton(),
                   ),
                 );
               },

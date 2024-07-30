@@ -120,7 +120,7 @@ class _InfoState extends State<Info> {
                SettingItem(
                 title: "Conditions".tr(),
                 icon: Ionicons.timer_sharp,
-                bgColor: Color.fromARGB(255, 220, 242, 251),
+                bgColor: const Color.fromARGB(255, 220, 242, 251),
                 iconColor: Colors.blue,
                 value: "",
                   child: ForwardButton(onTap: () {

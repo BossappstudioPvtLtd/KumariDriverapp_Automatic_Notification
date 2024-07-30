@@ -91,7 +91,7 @@ class _PrifileEdtState extends State<PrifileEdt> {
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (BuildContext context) => LoadingDialog(
+      builder: (BuildContext context) => const LoadingDialog(
         messageText: "Updating Profile",
       ),
     );

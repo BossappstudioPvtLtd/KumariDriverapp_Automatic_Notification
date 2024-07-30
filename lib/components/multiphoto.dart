@@ -24,8 +24,8 @@ class _MultyPhotoState extends State<MultyPhoto> {
   List<XFile>? _imageFileList;
 
   void _pickImages() async {
-    final List<XFile>? selectedImages = await _picker.pickMultiImage();
-    if (selectedImages!.isNotEmpty) {
+    final List<XFile> selectedImages = await _picker.pickMultiImage();
+    if (selectedImages.isNotEmpty) {
       setState(() {
         _imageFileList = selectedImages;
       });

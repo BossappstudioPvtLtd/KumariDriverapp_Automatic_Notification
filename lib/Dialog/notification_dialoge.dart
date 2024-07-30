@@ -1,6 +1,7 @@
 import 'dart:async';
 
 //import 'package:drivers_app/global/global_var.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ import 'package:kumari_drivers/Methords/common_methords.dart';
 import 'package:kumari_drivers/Dialog/loading_dialog.dart';
 import 'package:kumari_drivers/pushNotification/trip_details.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:restart_app/restart_app.dart';
 
 class NotificationDialog extends StatefulWidget {
   TripDetails? tripDetailsInfo;
@@ -143,9 +145,9 @@ class _NotificationDialogState extends State<NotificationDialog> {
             16.height,
 
             //title
-            const Text(
-              "NEW TRIP REQUEST",
-              style: TextStyle(
+             Text(
+              "NEW TRIP REQUEST".tr(),
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
                 color: Colors.white60,
@@ -231,24 +233,26 @@ class _NotificationDialogState extends State<NotificationDialog> {
             8.height,
 
             //decline btn - accept btn
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Row(
+           
+            Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                         Navigator.of(context).pop(false);
                         audioPlayer.stop();
+                        
+            Restart.restartApp();
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.pink,
                       ),
-                      child: const Text(
-                        "DECLINE",
-                        style: TextStyle(
+                      child:  Text(
+                        "DECLINE".tr(),
+                        style: const TextStyle(
                           color: Colors.white,
+                          
                         ),
                       ),
                     ),
@@ -260,7 +264,7 @@ class _NotificationDialogState extends State<NotificationDialog> {
                         audioPlayer.stop();
 
                         setState(() {
-                          tripRequestStatus = "accepted";
+                          tripRequestStatus = "accepted".tr();
                         });
 
                         checkAvailabilityOfTripRequest(context);
@@ -268,17 +272,18 @@ class _NotificationDialogState extends State<NotificationDialog> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
                       ),
-                      child: const Text(
-                        "ACCEPT",
-                        style: TextStyle(
+                      child:  Text(
+                        "ACCEPT".tr(),
+                        style: const TextStyle(
                           color: Colors.white,
+                          fontSize: 12
                         ),
                       ),
                     ),
                   ),
                 ],
               ),
-            ),
+            
 
             10.height,
           ],

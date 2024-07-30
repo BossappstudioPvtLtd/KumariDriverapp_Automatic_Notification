@@ -16,8 +16,29 @@
    "Conditions":"Conditions",
    "Setting Up The App":"Setting Up The App",
 
-
-
+    "Total Trips":"Total Trips",
+    "Total Trips Completed" :"Total Trips Completed",
+    "Check Trips History":"Check Trips History",
+    "GO OFFLINE NOW":"GO OFFLINE NOW",
+    "Total Earnings": "Total Earnings",
+    "GO ONLINE NOW":"GO ONLINE NOW",
+    "You are about to go online, you will become available to receive trip requests from users.":"You are about to go online, you will become available to receive trip requests from users.",
+    "You are about to go offline, you will stop receiving new trip requests from users.":"You are about to go offline, you will stop receiving new trip requests from users.",
+    "BACK":"BACK",
+    "CONFIRM":"CONFIRM",
+    "accepted":"accepted",
+    "arrived":"arrived",
+    "END TRIP":"END TRIP",
+    "START TRIP": "START TRIP",
+    "ontrip":"ontrip",
+    "COLLECT CASH": "COLLECT CASH",
+    "This Is fare Amount":"This Is fare Amount",
+    "NEW TRIP REQUEST":"NEW TRIP REQUEST",
+    "to be charged frome the user.":"to be charged frome the user.",
+    "DECLINE": "DECLINE",
+     "ACCEPT": "ACCEPT",
+     "Trips History":"Trips History",
+     "Total Trips Completed:":"Total Trips Completed:",
 
 
     "Email Sign Out":"Email Sign Out",

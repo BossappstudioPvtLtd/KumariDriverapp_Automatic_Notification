@@ -94,7 +94,7 @@ class _DashboardState extends State<Dashboard> with SingleTickerProviderStateMix
         children: const [
           HomePage(),
           EarningsPage(),
-          SubscriptionButton(),
+          TripsPage(),
           ProfilePage(),
         ],
       ),

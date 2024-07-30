@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kumari_drivers/Methords/common_methords.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -5,14 +6,14 @@ import 'package:restart_app/restart_app.dart';
 
 class PaymentDialog extends StatefulWidget {
   final String fareAmount;
- // final String fareAmount1;
- // final String fareAmount2;
+  // final String fareAmount1;
+  // final String fareAmount2;
 
   const PaymentDialog({
     super.key,
     required this.fareAmount,
-  //  required this.fareAmount1,
-  //  required this.fareAmount2,
+    //  required this.fareAmount1,
+    //  required this.fareAmount2,
   });
 
   @override
@@ -40,13 +41,17 @@ class _PaymentDialogState extends State<PaymentDialog> {
             const SizedBox(
               height: 8,
             ),
-            Image.asset("assets/images/moneycurrency.png",height: 100,width: 200,),
+            Image.asset(
+              "assets/images/money.png",
+              height: 100,
+              width: 200,
+            ),
             const SizedBox(
               height: 21,
             ),
-            const Text(
-              "COLLECT CASH",
-              style: TextStyle(color: Colors.grey),
+             Text(
+              "COLLECT CASH".tr(),
+              style: const TextStyle(color: Colors.grey),
             ),
             const SizedBox(
               height: 21,
@@ -60,40 +65,33 @@ class _PaymentDialogState extends State<PaymentDialog> {
               height: 16,
             ),
             Text(
-              "\₹" + widget.fareAmount,
+              "₹${widget.fareAmount}",
               style: const TextStyle(
                 color: Colors.grey,
                 fontSize: 36,
                 fontWeight: FontWeight.bold,
               ),
             ),
-
-            /*Text(
-              "\₹" + widget.fareAmount1,
-              style: const TextStyle(
-                color: Colors.grey,
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
-              ),
-            ),*/
-
-            /* Text(
-              "\₹" + widget.fareAmount2,
-              style: const TextStyle(
-                color: Colors.grey,
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
-              ),
-            ),*/
-
             const SizedBox(
               height: 16,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                "This Is fare Amount (\₹ ${widget.fareAmount})to be charged frome the user.",
-                style: const TextStyle(color: Colors.grey),
+              child: Column(
+                children: [
+                  Text(
+                    "This Is fare Amount".tr(),
+                    style: const TextStyle(color: Colors.grey),
+                  ),
+                   Text(
+                    " (₹ ${widget.fareAmount})".tr(),
+                    style: const TextStyle(color: Colors.grey),
+                  ),
+                   Text(
+                    "to be charged frome the user.".tr(),
+                    style: const TextStyle(color: Colors.grey),
+                  ),
+                ],
               ),
             ),
             const SizedBox(
@@ -101,7 +99,8 @@ class _PaymentDialogState extends State<PaymentDialog> {
             ),
             ElevatedButton(
               style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),),
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+              ),
               onPressed: () {
                 Navigator.pop(context);
                 Navigator.pop(context);
@@ -110,8 +109,9 @@ class _PaymentDialogState extends State<PaymentDialog> {
 
                 Restart.restartApp();
               },
-              child: const Text(
-                "COLLECT CASH",
+              child:  Text(
+                "COLLECT CASH".tr(),
+                style: const TextStyle(color: Colors.white),
               ),
             )
           ],

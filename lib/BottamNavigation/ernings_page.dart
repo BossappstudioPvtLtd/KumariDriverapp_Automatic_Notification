@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:circle_progress_bar/circle_progress_bar.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class _EarningsPageState extends State<EarningsPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    
     super.initState();
 
     getTotalEarningsOfCurrentDriver();
@@ -57,7 +58,7 @@ class _EarningsPageState extends State<EarningsPage> {
                     AnimatedTextKit(
                       totalRepeatCount: Duration.microsecondsPerMillisecond,
                       animatedTexts: [
-                        WavyAnimatedText('Total Earnings',
+                        WavyAnimatedText('Total Earnings'.tr(),
                             textStyle: const TextStyle(
                                 fontSize: 25, color: Colors.black87)),
                       ],
@@ -102,7 +103,7 @@ class _EarningsPageState extends State<EarningsPage> {
                     ),
 
                     Text(
-                      "\₹ " + driverEarnings,
+                      "₹ $driverEarnings",
                       style: const TextStyle(
                         color: Colors.black54,
                         fontSize: 28,

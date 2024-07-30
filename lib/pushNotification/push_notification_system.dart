@@ -68,7 +68,7 @@ class PushNotificationSystem {
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) =>
-          LoadingDialog(messageText: "getting details..."),
+          const LoadingDialog(messageText: "getting details..."),
     );
 
     DatabaseReference tripRequestsRef =
@@ -78,35 +78,24 @@ class PushNotificationSystem {
       Navigator.pop(context);
 
       audioPlayer.open(
-        Audio("assets/audio/alert_sound.mp3"),
+        Audio("assets/audio/mixkit.wav"),
       );
 
       audioPlayer.play();
 
       TripDetails tripDetailsInfo = TripDetails();
-      double pickUpLat = double.parse(
-(dataSnapshot.snapshot.value! as Map)["pickUpLatLng"]["latitude"]);
-      double pickUpLng = double.parse(
-          (dataSnapshot.snapshot.value! as Map)["pickUpLatLng"]["longitude"]);
+      double pickUpLat = double.parse((dataSnapshot.snapshot.value! as Map)["pickUpLatLng"]["latitude"]);
+      double pickUpLng = double.parse((dataSnapshot.snapshot.value! as Map)["pickUpLatLng"]["longitude"]);
       tripDetailsInfo.pickUpLatLng = LatLng(pickUpLat, pickUpLng);
-      tripDetailsInfo.pickupAddress =
-          (dataSnapshot.snapshot.value! as Map)["pickUpAddress"];
+      tripDetailsInfo.pickupAddress = (dataSnapshot.snapshot.value! as Map)["pickUpAddress"];
 
-      double dropOffLat = double.parse(
-          (dataSnapshot.snapshot.value! as Map)["dropOffLatLng"]["latitude"]);
-      double dropOffLng = double.parse(
-          (dataSnapshot.snapshot.value! as Map)["dropOffLatLng"]["longitude"]);
+      double dropOffLat = double.parse((dataSnapshot.snapshot.value! as Map)["dropOffLatLng"]["latitude"]);
+      double dropOffLng = double.parse((dataSnapshot.snapshot.value! as Map)["dropOffLatLng"]["longitude"]);
       tripDetailsInfo.dropOffLatLng = LatLng(dropOffLat, dropOffLng);
 
-      tripDetailsInfo.dropOffAddress =
-          (dataSnapshot.snapshot.value! as Map)["dropOffAddress"];
-
-      tripDetailsInfo.userName =
-          (dataSnapshot.snapshot.value! as Map)["userName"];
-
-      tripDetailsInfo.userPhone =
-          (dataSnapshot.snapshot.value! as Map)["userPhone"];
-
+      tripDetailsInfo.dropOffAddress =(dataSnapshot.snapshot.value! as Map)["dropOffAddress"];
+      tripDetailsInfo.userName = (dataSnapshot.snapshot.value! as Map)["userName"];
+      tripDetailsInfo.userPhone = (dataSnapshot.snapshot.value! as Map)["userPhone"];
       tripDetailsInfo.tripID = tripID;
 
       showDialog(

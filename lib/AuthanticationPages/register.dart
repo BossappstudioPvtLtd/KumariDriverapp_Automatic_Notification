@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:kumari_drivers/components/material_buttons.dart';
 import 'package:kumari_drivers/components/my_Textfield.dart';
 import 'package:kumari_drivers/BottamNavigation/dashbord.dart';
 import 'package:kumari_drivers/components/drop_down.dart';
@@ -27,7 +28,7 @@ class Register extends StatefulWidget {
 class RegisterState extends State<Register>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<double> _animation;
+ late Animation<double> _animation;
   bool passwordVisible = false;
   late int _carSeats;
 
@@ -133,7 +134,7 @@ class RegisterState extends State<Register>
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (BuildContext context) => LoadingDialog(
+      builder: (BuildContext context) => const LoadingDialog(
         messageText: "Registering account",
       ),
     );
@@ -195,7 +196,7 @@ class RegisterState extends State<Register>
     bool isSmallScreen = screenWidth < 600;
 
     double imageRadius = isSmallScreen ? screenWidth * 0.2 : screenWidth * 0.15;
-    double spacing = screenHeight * 0.02;
+    double spacing = screenHeight * 0.010;
 
     return Scaffold(
       backgroundColor: const Color(0xff292C31),
@@ -214,8 +215,8 @@ class RegisterState extends State<Register>
                             AssetImage("assets/images/user.jpg",),
                       )
                     : Container(
-                        width: imageRadius * 2,
-                        height: imageRadius * 2,
+                       width: 90,
+                      height: 90,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.grey,
@@ -341,63 +342,83 @@ class RegisterState extends State<Register>
                       },
                   ),
                 ),
-                Expanded(
-                  child: Stack(
-                    children: [
-                      Center(
-                        child: Container(
-                          margin: EdgeInsets.only(bottom: screenWidth * .03),
-                          height: screenWidth * .3,
-                          width: screenWidth * .3,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            gradient: LinearGradient(
-                              colors: [
-                                Colors.transparent,
-                                Colors.transparent,
-                                Color(0xff09090A),
-                              ],
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
+
+
+                 Padding(
+                   padding: const EdgeInsets.all(25),
+                   child: MaterialButtons(
+                              borderRadius: BorderRadius.circular(10),
+                              meterialColor: const  Color(0xffA9DED8),
+                              containerheight: 50,
+                              elevationsize: 20,
+                              textcolor: Colors.white,
+                              fontSize: 18,
+                              textweight: FontWeight.bold,
+                              text: " Register",
+                              onTap: () {
+                               checkIfNetworkIsAvailable();
+                                HapticFeedback.lightImpact();
+                              },
                             ),
-                          ),
-                        ),
-                      ),
-                      Center(
-                        child: Transform.scale(
-                          scale: _animation.value,
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () {
-                              checkIfNetworkIsAvailable();
-                              HapticFeedback.lightImpact();
-                              Fluttertoast.showToast(
-                                msg: 'Register',
-                              );
-                            },
-                            child: Container(
-                              height: screenWidth * .2,
-                              width: screenWidth * .2,
-                              alignment: Alignment.center,
-                              decoration: const BoxDecoration(
-                                color: Color(0xffA9DED8),
-                                shape: BoxShape.circle,
-                              ),
-                              child: const Text(
-                                'Register',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                 ),
+
+                // Expanded(
+                //   child: Stack(
+                //     children: [
+                //       Center(
+                //         child: Container(
+                //           margin: EdgeInsets.only(bottom: screenWidth * .03),
+                //           height: screenWidth * .3,
+                //           width: screenWidth * .3,
+                //           decoration: const BoxDecoration(
+                //             shape: BoxShape.circle,
+                //             gradient: LinearGradient(
+                //               colors: [
+                //                 Colors.transparent,
+                //                 Colors.transparent,
+                //                 Color(0xff09090A),
+                //               ],
+                //               begin: Alignment.topCenter,
+                //               end: Alignment.bottomCenter,
+                //             ),
+                //           ),
+                //         ),
+                //       ),
+                //       Center(
+                //         child: Transform.scale(
+                //           scale: _animation.value,
+                //           child: InkWell(
+                //             splashColor: Colors.transparent,
+                //             highlightColor: Colors.transparent,
+                //             onTap: () {
+                //               checkIfNetworkIsAvailable();
+                //               HapticFeedback.lightImpact();
+                //               Fluttertoast.showToast(
+                //                 msg: 'Register',
+                //               );
+                //             },
+                //             child: Container(
+                //               height: screenWidth * .2,
+                //               width: screenWidth * .2,
+                //               alignment: Alignment.center,
+                //               decoration: const BoxDecoration(
+                //                 color: Color(0xffA9DED8),
+                //                 shape: BoxShape.circle,
+                //               ),
+                //               child: const Text(
+                //                 'Register',
+                //                 style: TextStyle(
+                //                   color: Colors.black,
+                //                   fontWeight: FontWeight.w600,
+                //                 ),
+                //               ),
+                //             ),
+                //           ),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
               ],
             ),
           ),

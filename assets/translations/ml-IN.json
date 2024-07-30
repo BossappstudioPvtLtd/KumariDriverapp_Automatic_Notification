@@ -8,9 +8,33 @@
     "Info": "വിവരം",
 
 
-
-
-
+    
+   "Total Trips": "മൊത്തം യാത്രകൾ",
+    "Total Trips Completed": "സമ്പൂർണമായ യാത്രകൾ",
+    "Check Trips History": "യാത്രാ ചരിത്രം പരിശോധിക്കുക",
+    "GO OFFLINE NOW": "ഇപ്പോൾ ഓഫ്‌ലൈൻ ആകുക",
+    "Total Earnings": "മൊത്തം വരുമാനം",
+    "GO ONLINE NOW": "ഇപ്പോൾ ഓൺലൈൻ ആകുക",
+    "You are about to go online, you will become available to receive trip requests from users.": "നിങ്ങൾ ഓൺലൈൻ ആകാൻ പോകുന്നു, ഉപയോക്താക്കളിൽ നിന്ന് യാത്രാ അഭ്യർത്ഥനകൾ ലഭിക്കുന്നതിന് നിങ്ങൾ ലഭ്യമാകും.",
+    "You are about to go offline, you will stop receiving new trip requests from users.": "നിങ്ങൾ ഓഫ്‌ലൈൻ ആകാൻ പോകുന്നു, ഉപയോക്താക്കളിൽ നിന്ന് പുതിയ യാത്രാ അഭ്യർത്ഥനകൾ സ്വീകരിക്കുന്നത് നിർത്തും.",
+    "BACK": "തിരികെ",
+    "CONFIRM": "സ്ഥിരീകരിക്കുക",
+    "accepted": "അംഗീകരിച്ചത്",
+    "arrived": "വരികയും",
+    "END TRIP": "യാത്ര അവസാനിപ്പിക്കുക",
+    "ontrip": "യാത്രയിൽ",
+    "COLLECT CASH":"പണം ശേഖരിക്കുക",
+    "START TRIP": "യാത്ര ആരംഭിക്കുക",
+    "NEW TRIP REQUEST":"പുതിയ യാത്രാ അഭ്യർത്ഥന",
+    "to be charged frome the user.":"ഉപയോക്താവിൽ നിന്ന് ഈടാക്കും",
+    "DECLINE": "നിരസിക്കുക",
+    "ACCEPT": "അംഗീകരിക്കുക",
+    "This Is fare Amount": "ഇത് യാത്രാ നിരക്ക് ആണ്",
+    
+    "Trips History": "യാത്രാ ചരിത്രം",
+    "Total Trips Completed:": "സമ്പൂർണമായ യാത്രകൾ:",
+    
+    
     "Responsibilities": "ذെന്തമാണ്നിരവധി",
     "Conditions": "നിബന്ധനകൾ",
 

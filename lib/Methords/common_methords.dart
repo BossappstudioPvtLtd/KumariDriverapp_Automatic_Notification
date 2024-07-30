@@ -112,7 +112,7 @@ static Future<DirectionDetails?> getDirectionDetailsFromAPI(LatLng source, LatLn
 
 
   ///Directions API
-  /*calculateFareAmount(DirectionDetails directionDetails)
+calculateFareAmount(DirectionDetails directionDetails)
   {
     double distancePerKmAmount = 2.0;
     double durationPerMinuteAmount = 0.3;
@@ -124,7 +124,7 @@ static Future<DirectionDetails?> getDirectionDetailsFromAPI(LatLng source, LatLn
     double overAllTotalFareAmount = baseFareAmount + totalDistanceTravelFareAmount + totalDurationSpendFareAmount;
 
     return overAllTotalFareAmount.toStringAsFixed(1);
-  }*/
+  }
 
   String calculateFareAmountFor3Seats(DirectionDetails directionDetails) {
     double distancePerKmAmount = .6;
@@ -146,16 +146,17 @@ static Future<DirectionDetails?> getDirectionDetailsFromAPI(LatLng source, LatLn
     return overAllTotalFareAmount.toStringAsFixed(1);
   }
 
+ 
   String calculateFareAmountFor4Seats(DirectionDetails directionDetails) {
-    double distancePerKmAmount = 5.6;
-    double durationPerMinuteAmount = 2.3;
-    double baseFareAmount = 50;
+    double distancePerKmAmount = .6;
+    double durationPerMinuteAmount = 0.3;
+    double baseFareAmount = 50 ;
 
     // Assuming the fare calculation is influenced by the number of seats
     double seatFactor = 4; // For 4 seats
 
     double totalDistanceTravelFareAmount =
-        (directionDetails.distanceValueDigits! / 100) * distancePerKmAmount;
+        (directionDetails.distanceValueDigits! / 1000) * distancePerKmAmount;
     double totalDurationSpendFareAmount =
         (directionDetails.durationValueDigits! / 60) * durationPerMinuteAmount;
 
@@ -165,7 +166,6 @@ static Future<DirectionDetails?> getDirectionDetailsFromAPI(LatLng source, LatLn
 
     return overAllTotalFareAmount.toStringAsFixed(1);
   }
-
   String calculateFareAmountFor7Seats(DirectionDetails directionDetails) {
     double distancePerKmAmount = .8;
     double durationPerMinuteAmount = 0.3;
@@ -186,5 +186,4 @@ static Future<DirectionDetails?> getDirectionDetailsFromAPI(LatLng source, LatLn
     return overAllTotalFareAmount.toStringAsFixed(1);
   }
 
-  calculateFareAmount(DirectionDetails directionDetails) {}
 }

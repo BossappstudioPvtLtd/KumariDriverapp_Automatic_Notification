@@ -23,7 +23,36 @@
     "Trips": "பயணங்கள்",
     "Profile": "சுயவிவரம்",
 
+     
 
+    
+   
+   "Total Trips": "மொத்த பயணங்கள்",
+    "Total Trips Completed": "முழுமையான பயணங்கள்",
+    "Check Trips History": "பயண வரலாற்றைச் சரிபார்க்கவும்",
+    "GO OFFLINE NOW": "இப்போது ஆஃப்லைனில் செல்லுங்கள்",
+    "Total Earnings": "மொத்த வருவாய்",
+    "GO ONLINE NOW": "இப்போது ஆன்லைனில் செல்லுங்கள்",
+    "You are about to go online, you will become available to receive trip requests from users.": "நீங்கள் ஆன்லைனில் செல்ல இருக்கிறீர்கள், பயனர்களிடம் இருந்து பயண கோரிக்கைகளை பெற நீங்கள் கிடைக்கக்கூடியவராவீர்கள்.",
+    "You are about to go offline, you will stop receiving new trip requests from users.": "நீங்கள் ஆஃப்லைனில் செல்ல இருக்கிறீர்கள், பயனர்களிடமிருந்து புதிய பயண கோரிக்கைகளை பெறுவது நிறுத்தப்படும்.",
+    "BACK": "மீண்டும்",
+    "CONFIRM": "உறுதிசெய்",
+    "accepted": "அங்கீகாரம்",
+    "arrived": "வந்துவிட்டார்",
+    "END TRIP": "பயணத்தை முடிக்கவும்",
+    "ontrip": "பயணத்தில்",
+    "DECLINE": "நிராகரிக்கவும்",
+    "ACCEPT": "ஏற்கவும்",
+    "NEW TRIP REQUEST": "புதிய பயண கோரிக்கை",
+    "This Is fare Amount": "இதுவே பயணக் கட்டணம்",
+    "To be charged from the user.": "இதுவே பயனரிடமிருந்து வசூலிக்கப்படும்",
+    "COLLECT CASH": "காசோலைச் சேகரிக்கவும்",
+    "START TRIP": "பயணத்தைத் தொடங்குங்கள்",
+    
+    "Trips History": "பயண வரலாறு",
+    "Total Trips Completed:": "முழுமையான பயணங்கள்:",
+    
+    
 
     "Email Sign Out": "மின்னஞ்சல் வெளியேறு",
     "Do you want to continue with sign out?": "நீங்கள் வெளியேறுவதை தொடர விரும்புகின்றீர்களா?",

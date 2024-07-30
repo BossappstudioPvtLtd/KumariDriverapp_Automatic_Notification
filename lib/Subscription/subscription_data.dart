@@ -80,7 +80,7 @@ class _SubscriptionDataState extends State<SubscriptionData> {
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (BuildContext context) => LoadingDialog(
+      builder: (BuildContext context) => const LoadingDialog(
         messageText: "Updating your profile",
       ),
     );
