@@ -88,24 +88,13 @@ class _NotificationDialogState extends State<NotificationDialog> {
         driverTripStatusRef.set("accepted");
         //disable homepage location updates
         cMethods.turnOffLocationUpdatesForHomePage();
-          
+
         Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (c) =>
                     NewTripPage(newTripDetailsInfo: widget.tripDetailsInfo)));
-
-
-         
-
-
-
-
-
-
-                    
-      }
-       else if (newTripStatusValue == "cancelled") {
+      } else if (newTripStatusValue == "cancelled") {
         cMethods.displaySnackBar(
             "Trip Request has been Cancelled by user.", context);
       } else if (newTripStatusValue == "timeout") {
@@ -145,7 +134,7 @@ class _NotificationDialogState extends State<NotificationDialog> {
             16.height,
 
             //title
-             Text(
+            Text(
               "NEW TRIP REQUEST".tr(),
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
@@ -233,57 +222,52 @@ class _NotificationDialogState extends State<NotificationDialog> {
             8.height,
 
             //decline btn - accept btn
-           
+
             Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                         Navigator.of(context).pop(false);
-                        audioPlayer.stop();
-                        
-            Restart.restartApp();
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.pink,
-                      ),
-                      child:  Text(
-                        "DECLINE".tr(),
-                        style: const TextStyle(
-                          color: Colors.white,
-                          
-                        ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop(false);
+                      audioPlayer.stop();
+
+                      Restart.restartApp();
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.pink,
+                    ),
+                    child: Text(
+                      "DECLINE".tr(),
+                      style: const TextStyle(
+                        color: Colors.white,
                       ),
                     ),
                   ),
-                  10.height,
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        audioPlayer.stop();
+                ),
+                10.height,
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      audioPlayer.stop();
 
-                        setState(() {
-                          tripRequestStatus = "accepted".tr();
-                        });
+                      setState(() {
+                        tripRequestStatus = "accepted".tr();
+                      });
 
-                        checkAvailabilityOfTripRequest(context);
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
-                      ),
-                      child:  Text(
-                        "ACCEPT".tr(),
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 12
-                        ),
-                      ),
+                      checkAvailabilityOfTripRequest(context);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                    ),
+                    child: Text(
+                      "ACCEPT".tr(),
+                      style: const TextStyle(color: Colors.white, fontSize: 12),
                     ),
                   ),
-                ],
-              ),
-            
+                ),
+              ],
+            ),
 
             10.height,
           ],
